@@ -2,6 +2,8 @@
 #include <string>
 #include <iostream>
 
+#include "CustomAllocator_02.h"
+
 class TestClass_02
 {
 public:

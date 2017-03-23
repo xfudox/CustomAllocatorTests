@@ -19,9 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CustomAllocator_02.h" />
     <ClInclude Include="TestClass_02.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CustomAllocator_02.cpp" />
     <ClCompile Include="TestClass_02.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

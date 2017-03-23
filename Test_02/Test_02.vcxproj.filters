@@ -18,9 +18,15 @@
     <ClInclude Include="TestClass_02.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CustomAllocator_02.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TestClass_02.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomAllocator_02.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
