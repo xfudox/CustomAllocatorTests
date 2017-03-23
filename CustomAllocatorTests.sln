@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CustomAllocatorTests", "CustomAllocatorTests\CustomAllocatorTests.vcxproj", "{592ACF34-50CA-4782-BB1B-1DDE32F2654D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test_01", "CustomAllocatorTests\CustomAllocatorTests.vcxproj", "{592ACF34-50CA-4782-BB1B-1DDE32F2654D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
