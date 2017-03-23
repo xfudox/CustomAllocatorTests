@@ -13,8 +13,8 @@ int main(int argc, char *argv[])
 
 	testClassAllocator.printPoolInfo();
 
-	TestClass* tc_01 = new((TestClass*)testClassAllocator.allocate()) TestClass();
-	TestClass* tc_02 = new((TestClass*)testClassAllocator.allocate()) TestClass();
+	TestClass* tc_01 = new ((TestClass*)testClassAllocator.allocate()) TestClass();
+	TestClass* tc_02 = new ((TestClass*)testClassAllocator.allocate()) TestClass('a');
 
 	getchar();
 	return 0;

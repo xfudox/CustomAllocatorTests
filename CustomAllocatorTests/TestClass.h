@@ -3,6 +3,7 @@ class TestClass
 {
 public:
 	TestClass();
+	TestClass(char input);
 	~TestClass();
 
 	void testMethod();

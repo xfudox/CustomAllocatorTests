@@ -9,6 +9,14 @@ TestClass::TestClass()
 	d = 'd';
 }
 
+TestClass::TestClass(char input) :
+	a(input),
+	b(input),
+	c(input),
+	d(input)
+{
+}
+
 
 TestClass::~TestClass()
 {
