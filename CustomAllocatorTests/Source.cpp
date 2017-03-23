@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdio.h>	//getc
+//#include <new>
 
 #include "CustomAllocator.h"
 #include "TestClass.h"
@@ -9,9 +10,14 @@
 int main(int argc, char *argv[])
 {
 
-	CustomAllocator testAllocator{ MAX_NUM_ELEMENTS,sizeof(TestClass) };
+	CustomAllocator testClassAllocator{ MAX_NUM_ELEMENTS,sizeof(TestClass) };
 
-	testAllocator.printPoolInfo();
+	testClassAllocator.printPoolInfo();
+
+	TestClass* tc = new((TestClass*)testClassAllocator.allocate()) TestClass();
+
+	std::cout << "*tc = " << (void*)tc << std::endl;
+	tc->testMethod();
 
 	getchar();
 	return 0;

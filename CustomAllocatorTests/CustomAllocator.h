@@ -1,4 +1,5 @@
 #pragma once
+#include <cstdint>
 
 class CustomAllocator
 {
@@ -13,7 +14,11 @@ public:
 	void* allocate();
 
 private:
-	void *_pool_start, *_pool_end;
-	uint32_t _max_num_elements;
+	void *pool_start, *pool_end;
+	uint32_t max_num_elements;
+	uint32_t element_size;
+	uint32_t bitmap;
+
+	uint32_t getFirstFreeSlotIndex();
 };
 

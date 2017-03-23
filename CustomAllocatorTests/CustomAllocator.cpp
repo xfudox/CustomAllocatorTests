@@ -3,28 +3,40 @@
 #include <stdlib.h>
 
 CustomAllocator::CustomAllocator(int n, int size) :
-	_max_num_elements(n)
+	max_num_elements(n),
+	element_size(size),
+	bitmap(0)
 {
-	_pool_start = calloc(_max_num_elements, size);
-	_pool_end = ((char*)_pool_start) + (_max_num_elements*size);
+	pool_start = calloc(max_num_elements, element_size);
+	pool_end = ((char*)pool_start) + (max_num_elements*element_size);
 }
 
 
 CustomAllocator::~CustomAllocator()
 {
-	free(_pool_start);
-	_pool_end = nullptr;
+	free(pool_start);
+	pool_end = nullptr;
 }
 
 void CustomAllocator::printPoolInfo()
 {
 	std::cout << "\tPool Info:" << std::endl;
-	std::cout << "Start-end: " << (void *)_pool_start << " - " << (void *)_pool_end << std::endl;
-	std::cout << "Size: " << ((char *)_pool_end - (char *)_pool_start) << "bytes" << std::endl;
+	std::cout << "Start-end: " << (void *)pool_start << " - " << (void *)pool_end << std::endl;
+	std::cout << "Size: " << ((char *)pool_end - (char *)pool_start) << " bytes" << std::endl;
 }
 
 void * CustomAllocator::allocate()
 {
-	std::cout << "Allocated" << std::endl;
-	return nullptr;
+	uint32_t index{ getFirstFreeSlotIndex() };
+	std::cout << "Allocating at " << index << std::endl;
+	return (char*)pool_start+(index*element_size);
+}
+
+uint32_t CustomAllocator::getFirstFreeSlotIndex()
+{
+	uint32_t i{ 0 };
+	while (i < max_num_elements && (bitmap >> i) & 0b1 == 1) {
+		i++;
+	}
+	return i;
 }
