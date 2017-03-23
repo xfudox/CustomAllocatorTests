@@ -1,6 +1,5 @@
 #include <iostream>
-#include <stdio.h>	//getc
-//#include <new>
+#include <stdio.h>
 
 #include "CustomAllocator.h"
 #include "TestClass.h"
@@ -14,10 +13,8 @@ int main(int argc, char *argv[])
 
 	testClassAllocator.printPoolInfo();
 
-	TestClass* tc = new((TestClass*)testClassAllocator.allocate()) TestClass();
-
-	std::cout << "*tc = " << (void*)tc << std::endl;
-	tc->testMethod();
+	TestClass* tc_01 = new((TestClass*)testClassAllocator.allocate()) TestClass();
+	TestClass* tc_02 = new((TestClass*)testClassAllocator.allocate()) TestClass();
 
 	getchar();
 	return 0;

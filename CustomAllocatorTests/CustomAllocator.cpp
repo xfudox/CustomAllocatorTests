@@ -28,8 +28,10 @@ void CustomAllocator::printPoolInfo()
 void * CustomAllocator::allocate()
 {
 	uint32_t index{ getFirstFreeSlotIndex() };
+	void* tmp_ptr = (char*)pool_start + (index*element_size);
+	bitmap |= 0b1 << index;
 	std::cout << "Allocating at " << index << std::endl;
-	return (char*)pool_start+(index*element_size);
+	return tmp_ptr;
 }
 
 uint32_t CustomAllocator::getFirstFreeSlotIndex()
