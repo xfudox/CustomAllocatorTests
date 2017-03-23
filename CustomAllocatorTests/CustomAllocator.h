@@ -8,9 +8,12 @@ public:
 	CustomAllocator& operator=(const CustomAllocator&) = delete;
 	~CustomAllocator();
 
+	void printPoolInfo();
+
 	void* allocate();
 
 private:
-	void *pool_start, *pool_end;
+	void *_pool_start, *_pool_end;
+	uint32_t _max_num_elements;
 };
 

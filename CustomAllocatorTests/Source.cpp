@@ -11,6 +11,8 @@ int main(int argc, char *argv[])
 
 	CustomAllocator testAllocator{ MAX_NUM_ELEMENTS,sizeof(TestClass) };
 
+	testAllocator.printPoolInfo();
+
 	getchar();
 	return 0;
 }
