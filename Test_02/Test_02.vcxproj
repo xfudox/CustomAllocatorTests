@@ -24,6 +24,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CustomAllocator_02.cpp" />
+    <ClCompile Include="Source.cpp" />
     <ClCompile Include="TestClass_02.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -1,5 +1,6 @@
 #pragma once
 #include <cstdint>
+#include <iostream>
 
 class TestClass_02;
 
@@ -11,6 +12,7 @@ public:
 	void operator=(CustomAllocator_02 const&) = delete;
 
 	static CustomAllocator_02* getInstance();
+	TestClass_02* allocate();
 
 private:
 	CustomAllocator_02(uint32_t, uint32_t);

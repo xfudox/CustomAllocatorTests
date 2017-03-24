@@ -10,6 +10,7 @@ public:
 	TestClass_02();
 	TestClass_02(const char* input);
 	~TestClass_02();
+	void* operator new (size_t);
 
 	void print();
 

@@ -20,3 +20,9 @@ CustomAllocator_02* CustomAllocator_02::getInstance()
 		instance = new CustomAllocator_02();
 	return instance;
 }
+
+TestClass_02 * CustomAllocator_02::allocate()
+{
+	std::cout << "Allocating" << std::endl;
+	return nullptr;
+}

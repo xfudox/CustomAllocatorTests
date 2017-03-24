@@ -16,6 +16,12 @@ TestClass_02::~TestClass_02()
 {
 }
 
+void* operator new (size_t size)
+{
+	TestClass_02* tmp = CustomAllocator_02::getInstance()->allocate();
+	return tmp;
+}
+
 void TestClass_02::print()
 {
 	std::cout << str << std::endl;
