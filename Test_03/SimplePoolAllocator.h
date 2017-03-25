@@ -1,5 +1,8 @@
 #pragma once
 #include <cstdint>
+#include <iostream>
+
+#define PRINT_ALLOCATION(x) std::cout<<"Allocating "<<#x<<std::endl;
 
 template <class T>
 class SimplePoolAllocator
@@ -7,8 +10,8 @@ class SimplePoolAllocator
 public:
 	~SimplePoolAllocator();
 	static SimplePoolAllocator<T>* getInstance();
-
 	int templatedClassSize();
+	T* allocate();
 
 private:
 	SimplePoolAllocator() = delete;
@@ -36,6 +39,13 @@ SimplePoolAllocator<T>* SimplePoolAllocator<T>::getInstance()
 	if (!instance)
 		instance = new SimplePoolAllocator<T>(32);
 	return instance;
+}
+
+template<class T>
+inline T * SimplePoolAllocator<T>::allocate()
+{
+	PRINT_ALLOCATION(T);
+	return nullptr
 }
 
 template <class T>

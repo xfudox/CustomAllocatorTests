@@ -139,9 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ProxyAllocator.h" />
     <ClInclude Include="SimplePoolAllocator.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ProxyAllocator.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
