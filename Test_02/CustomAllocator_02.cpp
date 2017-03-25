@@ -2,7 +2,7 @@
 
 #include <stdlib.h>
 
-CustomAllocator_02::CustomAllocator_02(uint32_t n=32, uint32_t s) :
+CustomAllocator_02::CustomAllocator_02(uint32_t n=32, uint32_t s=0) :
 	num_elements(n),
 	element_size(s)
 {
