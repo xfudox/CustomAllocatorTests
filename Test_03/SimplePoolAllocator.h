@@ -2,7 +2,7 @@
 #include <cstdint>
 #include <iostream>
 
-#define PRINT_ALLOCATION(x) std::cout<<"Allocating "<<#x<<std::endl;
+#define PRINT_ALLOCATION(x) std::cout << "Allocating " << sizeof(x) << " bytes" << std::endl;
 
 template <class T>
 class SimplePoolAllocator
@@ -45,7 +45,7 @@ template<class T>
 inline T * SimplePoolAllocator<T>::allocate()
 {
 	PRINT_ALLOCATION(T);
-	return nullptr
+	return nullptr;
 }
 
 template <class T>

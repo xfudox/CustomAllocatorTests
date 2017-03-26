@@ -1,9 +1,10 @@
 #include "ProxyAllocator.h"
 
+ProxyAllocator* ProxyAllocator::instance = 0;
+
 ProxyAllocator::ProxyAllocator()
 {
 }
-
 
 ProxyAllocator::~ProxyAllocator()
 {
@@ -11,5 +12,7 @@ ProxyAllocator::~ProxyAllocator()
 
 ProxyAllocator * ProxyAllocator::getInstance()
 {
-	return nullptr;
+	if (!instance)
+		instance = new ProxyAllocator();
+	return instance;
 }

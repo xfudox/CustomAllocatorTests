@@ -13,11 +13,10 @@ int main(int argc, char *argv[])
 	*/
 
 	ProxyAllocator* pa = ProxyAllocator::getInstance();
-	/*
-	pa->allocate<int>();
+
 	pa->allocate<char>();
-	pa->allocate<float>();
-	*/
+	pa->allocate<int>();
+	pa->allocate<double>();
 
 	getchar();
 	return 0;
