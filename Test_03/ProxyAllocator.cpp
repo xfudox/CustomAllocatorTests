@@ -6,6 +6,10 @@ ProxyAllocator::ProxyAllocator()
 {
 }
 
+void ProxyAllocator:: incrementCount(const char *)
+{
+}
+
 ProxyAllocator::~ProxyAllocator()
 {
 }
