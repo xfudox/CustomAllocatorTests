@@ -6,6 +6,8 @@ public:
 	ClassB(long long);
 	~ClassB();
 
+	void* operator new(size_t);
+
 	long long getValue();
 
 private:
