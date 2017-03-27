@@ -1,17 +1,12 @@
 #include <iostream>
 #include <stdio.h>
 #include "SimplePoolAllocator.h"
-#include "ProxyAllocator.h"
 #include "ClassA.h"
 #include "ClassB.h"
 
 int main(int argc, char *argv[]) 
 {
-
-	ProxyAllocator* pa = ProxyAllocator::getInstance();
-
-	pa->allocate<ClassA>();
-	pa->allocate<ClassB>();
+	SimplePoolAllocator<ClassA>* class_a_allocator = SimplePoolAllocator<ClassA>::getInstance();
 
 	getchar();
 	return 0;
