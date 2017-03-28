@@ -1,45 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Allocators">
+      <UniqueIdentifier>{4dd20435-0d10-4abd-a030-faf0816057b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Allocators\Header Files">
+      <UniqueIdentifier>{1b67ba24-6f5a-4474-bb0d-689240c621ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Allocators\Source Files">
+      <UniqueIdentifier>{663e6cd9-ee17-4d79-ba86-3a77aa3540a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Classes">
+      <UniqueIdentifier>{571beeca-91c6-423b-a906-2ebada90a01b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Classes\Header Files">
+      <UniqueIdentifier>{fe511fb2-a794-4610-bc51-ff3eb840b593}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Classes\Source Files">
+      <UniqueIdentifier>{8263d911-8ec3-46b9-8dd7-cb9da1d85ca2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SimplePoolAllocator.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="MemoryAllocator.h">
+      <Filter>Allocators\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ProxyAllocator.h">
-      <Filter>Header Files</Filter>
+      <Filter>Allocators\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SimplePoolAllocator.h">
+      <Filter>Allocators\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ClassA.h">
-      <Filter>Header Files</Filter>
+      <Filter>Test Classes\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ClassB.h">
-      <Filter>Header Files</Filter>
+      <Filter>Test Classes\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="MemoryAllocator.cpp">
+      <Filter>Allocators\Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="ProxyAllocator.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Allocators\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ClassA.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Test Classes\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ClassB.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Test Classes\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
