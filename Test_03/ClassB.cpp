@@ -1,8 +1,8 @@
 #include "ClassB.h"
-#include "SimplePoolAllocator.h"
+#include "ClassB_Allocator.h"
 
-
-ClassB::ClassB()
+ClassB::ClassB() :
+	ll(10)
 {
 }
 
@@ -18,7 +18,7 @@ ClassB::~ClassB()
 
 void * ClassB::operator new(size_t)
 {
-	return SimplePoolAllocator<ClassB>::getInstance()->allocate();
+	return ClassB_Allocator::getInstance()->allocate();
 }
 
 long long ClassB::getValue()

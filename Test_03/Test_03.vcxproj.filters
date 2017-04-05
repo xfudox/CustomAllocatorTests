@@ -25,37 +25,31 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MemoryAllocator.h">
-      <Filter>Allocators\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ProxyAllocator.h">
-      <Filter>Allocators\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SimplePoolAllocator.h">
-      <Filter>Allocators\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ClassA.h">
       <Filter>Test Classes\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ClassB.h">
       <Filter>Test Classes\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PoolAllocator.h">
+      <Filter>Allocators\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClassB_Allocator.h">
+      <Filter>Allocators\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
       <Filter>Resource Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MemoryAllocator.cpp">
-      <Filter>Allocators\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ProxyAllocator.cpp">
-      <Filter>Allocators\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ClassA.cpp">
       <Filter>Test Classes\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ClassB.cpp">
       <Filter>Test Classes\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClassB_Allocator.cpp">
+      <Filter>Allocators\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

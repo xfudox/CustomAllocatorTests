@@ -1,24 +1,25 @@
 #pragma once
 #include <cstdint>
 #include <iostream>
+#include <typeinfo>
 
 #include <stdlib.h>
 
 #define PRINT_ALLOCATION(x) std::cout << "Allocating " << sizeof(x) << " bytes" << std::endl;
 
 template <class T>
-class SimplePoolAllocator
+class PoolAllocator
 {
 public:
-	static SimplePoolAllocator<T>* getInstance();
+	static PoolAllocator<T>* getInstance();
 	T* allocate();
 
 private:
-	SimplePoolAllocator() = delete;
-	SimplePoolAllocator(int);
-	~SimplePoolAllocator();
+	PoolAllocator() = delete;
+	PoolAllocator(uint16_t);
+	~PoolAllocator();
 
-	static SimplePoolAllocator<T>* instance;
+	static PoolAllocator<T>* instance;
 	uint32_t getFirstFreeSlotIndex();
 	uint32_t getFirstFreePointerIndex();
 	uint32_t max_num_elements;
@@ -26,54 +27,52 @@ private:
 
 	void*		pool_start;
 	void*		pool_end;
-	uint32_t*	bitmap;
-	T**			pointers
+	T**			pointers;
+	std::vector<bool> bitmap;
 };
 
 template <class T>
-SimplePoolAllocator<T>* SimplePoolAllocator<T>::instance = 0;
+PoolAllocator<T>* PoolAllocator<T>::instance = 0;
 
 template <class T>
-SimplePoolAllocator<T>::SimplePoolAllocator(int n = 32) :
+PoolAllocator<T>::PoolAllocator(uint16_t n = 32) :
 	max_num_elements(n),
 	element_size(sizeof(T))
 {
 	pool_start = calloc(max_num_elements, element_size);
 	pool_end = (char*)pool_start + (max_num_elements*element_size);
 
-	bitmap = calloc((n >> 5), sizeof(uint32_t));
 	pointers = calloc(max_num_elements, sizeof(T*));
 }
 
 template <class T>
-SimplePoolAllocator<T>::~SimplePoolAllocator()
+PoolAllocator<T>::~PoolAllocator()
 {}
 
 template<class T>
-inline uint32_t SimplePoolAllocator<T>::getFirstFreeSlotIndex()
+inline uint32_t PoolAllocator<T>::getFirstFreeSlotIndex()
 {
-	uint32_t index = uint32_t(0);
-	while (((bitmap >> index) & 0b1) == 0)
-		index++;
-	return index;
+	return uint32_t();
 }
 
 template<class T>
-inline uint32_t SimplePoolAllocator<T>::getFirstFreePointerIndex()
+inline uint32_t PoolAllocator<T>::getFirstFreePointerIndex()
 {
 	return uint32_t();
 }
 
 template <class T>
-SimplePoolAllocator<T>* SimplePoolAllocator<T>::getInstance()
+PoolAllocator<T>* PoolAllocator<T>::getInstance()
 {
-	if (!instance)
-		instance = new SimplePoolAllocator<T>(32);
+	if (!instance) {
+		std::cout << "Creating new PoolAllocator<" << typeid(T).name << ">(" << max_num_elements << ");" << std::endl;
+		instance = new PoolAllocator<T>(32);
+	}
 	return instance;
 }
 
 template<class T>
-inline T * SimplePoolAllocator<T>::allocate()
+inline T * PoolAllocator<T>::allocate()
 {
 	PRINT_ALLOCATION(T);
 	uint32_t free_slot_index	= getFirstFreeSlotIndex();

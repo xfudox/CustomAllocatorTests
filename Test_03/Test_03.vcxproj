@@ -141,15 +141,13 @@
   <ItemGroup>
     <ClInclude Include="ClassA.h" />
     <ClInclude Include="ClassB.h" />
-    <ClInclude Include="MemoryAllocator.h" />
-    <ClInclude Include="ProxyAllocator.h" />
-    <ClInclude Include="SimplePoolAllocator.h" />
+    <ClInclude Include="ClassB_Allocator.h" />
+    <ClInclude Include="PoolAllocator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClassA.cpp" />
     <ClCompile Include="ClassB.cpp" />
-    <ClCompile Include="MemoryAllocator.cpp" />
-    <ClCompile Include="ProxyAllocator.cpp" />
+    <ClCompile Include="ClassB_Allocator.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
